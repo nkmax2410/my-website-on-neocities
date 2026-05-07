@@ -12,9 +12,7 @@ const addPrefixA = (linksArray)=>{
 }
 const addPrefixImg = (imgsArray)=>{
     imgsArray.forEach(img => {
-        console.log(img.getAttribute("src"));
         img.src = prefix + img.getAttribute("src");
-        console.log(img.getAttribute("src"));
     })
 }
 

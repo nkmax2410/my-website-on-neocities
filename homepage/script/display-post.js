@@ -103,11 +103,11 @@ const displayPage = (currentPage,postArray)=> {
     const slicedPosts = postArray.slice(startIndex, startIndex + postsPerPage);
 
     slicedPosts.forEach(post=>{
-        postsHtml += `<a href="./articles/${post.id.toString().padStart(8,"0")}.html">`;
+        postsHtml += `<a href="articles/${post.id.toString().padStart(8,"0")}.html">`;
         postsHtml += "<div class='post'>";
         postsHtml += `<h2>${post.title}</h2>`;
         let dateWithSlash = post.date.replace(/-/g,"/").replace(/\/0/g,"/");
-        postsHtml += `<p>${dateWithSlash}</p>`;
+        postsHtml += `<p><time datetime="${post.date}">${dateWithSlash}</time></p>`;
         postsHtml += "</div>";
         postsHtml += "</a>";
     });

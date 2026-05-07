@@ -37,7 +37,6 @@ const display = async() =>{
 
 window.onload = ()=>{
     const scripts = document.querySelectorAll("script");
-    console.log(scripts);
     let doesDisplayPostScriptExist = false;
     for (let script of scripts){
         if (script.getAttribute("src") !== null && script.getAttribute("src").includes("display-post.js")){
