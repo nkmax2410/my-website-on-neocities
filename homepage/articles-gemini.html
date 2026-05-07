@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta charset="utf-8">
+    <link rel="icon" href="" type="image/png">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>記事</title>
+</head>
+<body>
+<header>
+</header>
+<main>
+    <div class="main-visual">
+        <div class="container">
+            <div class="main-visual-content">
+            <h1>記事</h1>
+            <p>拙文(文字通り)をご紹介!</p>
+            </div>
+        </div>
+    </div>
+    <article>
+        <h1>記事 (新しい順)</h1>
+        <p>※現在ダミー文章が表示されています。<br>&emsp;暫くお待ちください...</p>
+        <div class="searchField">
+            <div class="searchContainer">
+                <input class="searchForm" type="text" placeholder="キーワードを題に含む記事が表示されます...">
+                <div class="dateField">
+                    <input class="dateForm" id="dateFormFirst" type="date">〜<input class="dateForm" id="dateFormLast" type="date">
+                </div>
+            </div>
+            <button class="searchButton">検索</button>
+        </div>
+        <div class="indexField">
+
+        </div>
+        <div id="postsField">
+
+        </div>
+        <div class="indexField">
+
+        </div>
+    </article>
+</main>
+<footer>
+
+</footer>
+<script src="script/display-common-parts.js" type="module"></script>
+<script src="script/gemini/display-post-gemini.js" type="module"></script>
+<script src="script/add-prefix.js" type="module"></script>
+</body>

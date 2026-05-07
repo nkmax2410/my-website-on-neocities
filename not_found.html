@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link class="stylesheet" rel="stylesheet" href="/common/common-style.css">
+  </head>
+  <body>
+  <script>
+    "use strict";
+    const currentPath = window.location.pathname;
+    
+    if (currentPath.startsWith("/homepage/")){
+        window.location.replace("/homepage/not_found.html");
+    }
+    
+  </script>
+  
+  <h1>ページが見つかりませんでした。</h1>
+  <p class="messageField"></p>
+  <a href="./index.html">トップページに戻る</a>
+  <script>
+    "use strict";
+    const messageField = document.querySelector(".messageField");
+    const currentUrl = window.location.href;
+    messageField.textContent = `ページ: ${currentUrl} は見つかりませんでした。`;
+  </script>
+  </body>
+
+</html>
