@@ -4,9 +4,13 @@
     box-sizing:border-box;
     text-align:center;
 }
+html{
+    height:100%;
+}
 body{
-    background-color:#000000;
+    background-color:#272727;
     color:#ffffff;
+    min-height:100vh;
 }
 header{
     text-align:center;
@@ -18,15 +22,22 @@ header{
 header a{
     text-decoration:none;
 }
+main {
+    text-align:center;
+    background-color:#000000;
+    padding:20px;
+}
 a{
     color:#ffffff;
 }
+footer{
+    background-color:#272727;
+    padding:40px;
+    flex:1;
+}
 
 /* index.htmlを意図 */
-main {
-    text-align:center;
-    padding:15px;
-}
+
 main p{
     width:90%;
     margin:0 auto;
@@ -76,5 +87,5 @@ hr{
     margin:1rem auto;
 }
 h2{
-    margin:0.67rem auto;
+    margin:0 auto 0.67rem;
 }

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link class="stylesheet" rel="stylesheet" href="./common/top-style.css">
+    <link class="stylesheet" rel="stylesheet" href="./top-source/top-style.css">
     <title>ページが見つかりませんでした | 思考停止 on Neocities</title>
   </head>
   <body>
@@ -12,7 +12,7 @@
     const currentPath = window.location.pathname;
     
     if (currentPath.startsWith("/homepage/")){
-        window.location.replace("/homepage/not_found.html");
+        window.location.replace("./homepage/not_found.html");
     }
     
   </script>
@@ -20,9 +20,14 @@
   <header>
   <h1><a href="index.html">思考停止 on Neocities</a></h1>
   </header>
+  <main>
   <h2>ページが見つかりませんでした。</h2>
   <p class="messageField"></p>
   <a href="./index.html">トップページに戻る</a>
+  </main>
+  <footer>
+    <a href="https://neocities.org/"><img src="./top-source/neocities.png"></a>
+  </footer>
   <script>
     "use strict";
     const messageField = document.querySelector(".messageField");
