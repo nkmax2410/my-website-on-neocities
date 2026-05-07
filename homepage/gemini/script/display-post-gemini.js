@@ -1,5 +1,13 @@
 "use strict";
-let currentPage = 1;
+let currentPage = 0;
+if (localStorage.getItem("currentPageLS")){
+    currentPage = localStorage.getItem("currentPageLS");
+}
+else{
+    currentPage = 1;
+    localStorage.setItem("currentPageLS",currentPage);
+}
+
 const postsPerPage = 10;
 let allPosts = [];
 
@@ -7,13 +15,15 @@ const indexField = document.getElementsByClassName("indexField");
 const postsField = document.getElementById("postsField");
 
 const fetchPosts = async () => {
-    const response = await fetch("/source/posts-gemini.json");
+    const response = await fetch("./source/posts-gemini.json");
     allPosts = await response.json();
     
     allPosts.reverse();
     
     displayIndex(allPosts);
     displayPage(currentPage,allPosts);
+
+    window.dispatchEvent(new CustomEvent("postsLoaded"));
 }
 
 const displayIndex = (postArray)=>{
@@ -90,11 +100,11 @@ const displayPage = (currentPage,postArray)=> {
     const slicedPosts = postArray.slice(startIndex, startIndex + postsPerPage);
 
     slicedPosts.forEach(post=>{
-        postsHtml += `<a href="/articles/${post.id.toString().padStart(8,"0")}.html">`;
+        postsHtml += `<a href="../articles/${post.id.toString().padStart(8,"0")}.html">`;
         postsHtml += "<div class='post'>";
         postsHtml += `<h2>${post.title}</h2>`;
         let dateWithSlash = post.date.replace(/-/g,"/").replace(/\/0/g,"/");
-        postsHtml += `<p>${dateWithSlash}</p>`;
+        postsHtml += `<p><time datetime="${post.date}">${dateWithSlash}</time></p>`;
         postsHtml += "</div>";
         postsHtml += "</a>";
     });
