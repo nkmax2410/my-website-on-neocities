@@ -7,6 +7,7 @@
 body {
     background-color: #2c2c2c;
     color: #FFFFFF;
+    font-weight:400;
 }
 
 a {
@@ -126,6 +127,10 @@ article{
 
 article h1{
     margin: 0 0 20px;
+}
+
+p, .post, #articleFieldHeader{
+    font-family:"IBM Plex Sans JP", "Noto Sans JP",sans-serif;
 }
 hr{
     margin: 30px 0;

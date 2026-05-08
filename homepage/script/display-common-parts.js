@@ -34,3 +34,12 @@ const display = async() =>{
 }
 
 display()
+
+/* 上は非同期処理なので以下の処理は先にやる */
+const googleFontCode = `
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&display=swap" rel="stylesheet">
+`
+
+document.head.insertAdjacentHTML('beforeend', googleFontsCode);
