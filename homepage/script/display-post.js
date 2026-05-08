@@ -112,7 +112,18 @@ const displayPage = (currentPage,postArray)=> {
         postsHtml += "<div class='post'>";
         postsHtml += `<h2>${post.title}</h2>`;
         let dateWithSlash = post.date.replace(/-/g,"/").replace(/\/0/g,"/");
-        postsHtml += `<p><time datetime="${post.date}">${dateWithSlash}</time></p>`;
+        let tagUl = "<ul class='IBM-font'>"; 
+        for (let tag of post.tags){
+            tagUl += `<li>${tag}</li>`;
+        }
+        tagUl += "</ul>"
+        postsHtml += 
+        `<div class="post-data">
+            <div class="post-tags"><p>タグ:</p>${tagUl}</div>
+            <p><time datetime="${post.date}">${dateWithSlash}</time></p>
+        </div>`;
+
+        console.log(postsHtml);
         postsHtml += "</div>";
         postsHtml += "</a>";
     });

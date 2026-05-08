@@ -130,7 +130,7 @@ article h1{
     margin: 0 0 20px;
 }
 
-p{
+p, .IBM-font{
     font-family:"IBM Plex Sans JP", "Noto Sans JP",sans-serif;
 }
 hr{
@@ -377,10 +377,24 @@ footer a{
     background-color:#272727;
     padding:10px;
 }
-.post p{
+.post>.post-data{
     background-color:#414141;
     padding: 10px;
-    text-align:right;
+    display:flex;
+    justify-content:space-between;
+}
+.post>.post-data ul{
+    margin:0 10px;
+    list-style:none;
+}
+.post-tags{
+    display:flex;
+    align-items:center;
+}
+.post-tags li{
+    background-color:#5a5a5a;
+    border-radius:5px;
+    padding:0 5px;
 }
 
 #postsField a{
