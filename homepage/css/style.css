@@ -85,7 +85,7 @@ nav a {
     position:relative;
 }
 
-/* メイン */
+/* メインビジュアル */
 
 .main-visual{
     /* width: 100%;
@@ -117,6 +117,7 @@ nav a {
     font-size:4rem;
 }
 
+/* アーティクル(共通) */
 article{
     width: 1024px;
     margin: 0 auto;
@@ -135,6 +136,7 @@ p{
 hr{
     margin: 30px 0;
 }
+/* articleページ */
 /* index */
 .indexArticle{
     display:flex;
@@ -193,6 +195,52 @@ hr{
 
 .dateForm{
     width:48%;
+}
+.tagField{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:10px;
+}
+.tagField>p{
+    width:3rem;
+}
+.tagField>ul{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    list-style:none;
+    flex-grow:1;
+}
+.tagField li{
+    border:2px solid #ffffff;
+    background-color:#272727;
+    border-radius:10px;
+    padding:0 5px;
+    transition:background-color 0.2s;
+    /* position:relative; */
+}
+
+/*
+.tagField li::after{
+    content:"";
+    width:100%;
+    height:100%;
+    background-color:#ffffff;
+    position:relative;
+    top:0;
+    left:0;
+    opacity:0;
+    transition:opacity 0.2s;
+}
+.tagField li:hover::after{
+    opacity:0.3;
+}
+*/
+
+.tagField li:hover,.tagField li.selectedTag{
+    background-color:#d1d1d1;
+    color:#000000;
 }
 
 /* 各個の記事 */

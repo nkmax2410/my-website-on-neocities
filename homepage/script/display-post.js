@@ -134,10 +134,23 @@ const searchButton = document.querySelector(".searchButton");
 
 const dateForm = document.querySelectorAll(".dateForm");
 
+const tags = document.querySelectorAll(".tagField li");
+const currentTags = {
+    "一般記事":false,
+    "音楽":false
+};
+for (let tag of tags){
+    tag.addEventListener("click",function(){
+        currentTags[this.textContent] = !currentTags[this.textContent];
+        tag.classList.toggle("selectedTag");
+        console.log(currentTags);
+    });
+}
+
 searchButton.addEventListener("click",()=>{
     const searchKeyword = searchForm.value;
     
-    const filteredPosts = allPosts.filter((post)=>{
+    let filteredPosts = allPosts.filter((post)=>{
         return post.title.includes(searchKeyword);
     })
     .filter((post)=>{
@@ -146,8 +159,20 @@ searchButton.addEventListener("click",()=>{
         const endDate = new Date(dateForm[1].value);
 
         return ((startDate <= postDate) || isNaN(startDate))  && ((endDate >= postDate) || isNaN(endDate));
-    });
+    })
 
+    if (Object.values(currentTags).includes(true)){
+        filteredPosts = filteredPosts.filter((post)=>{ 
+            let isSelectedTagIncluded = false;
+            for(let postTag of post.tags){
+                if (currentTags[postTag]){
+                    isSelectedTagIncluded = true;
+                    break;
+                }
+            }
+            return isSelectedTagIncluded;
+        });
+    }
     
 
     displayIndex(filteredPosts);
