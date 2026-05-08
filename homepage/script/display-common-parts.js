@@ -12,8 +12,6 @@ favicon.href = prefix + "image/favicon.png";
 
 title.textContent += ` | ${siteTitle}`;
 
-
-
 const fetchHeader = async ()=> {
     const response = await fetch(prefix + "html-source/header.html");
     const headerHtml = await response.text();
@@ -35,22 +33,4 @@ const display = async() =>{
     window.dispatchEvent(event);
 }
 
-window.onload = ()=>{
-    const scripts = document.querySelectorAll("script");
-    let doesDisplayPostScriptExist = false;
-    for (let script of scripts){
-        if (script.getAttribute("src") !== null && script.getAttribute("src").includes("display-post.js")){
-            doesDisplayPostScriptExist = true;
-            break;
-        }
-    }
-
-    if (doesDisplayPostScriptExist) {
-        window.addEventListener("postsLoaded",()=>{
-            display();
-        })
-    }
-    else{
-        display()
-    }
-};
+display()
