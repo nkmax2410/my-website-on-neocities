@@ -2,6 +2,7 @@
 const isDeepLayer = window.location.pathname.includes("/articles/");
 const prefix = isDeepLayer ? "../" : "./"; 
 
+/*
 let currentPage = 0;
 if (localStorage.getItem("currentPageLS")){
     currentPage = localStorage.getItem("currentPageLS");
@@ -11,8 +12,13 @@ else{
     localStorage.setItem("currentPageLS",currentPage);
 }
 
+currentPageを保存しても、検索条件は保存されないから、意味無くないか?
+*/ 
+let currentPage = 1;
+
 const postsPerPage = 10;
 let allPosts = [];
+let currentPosts = [];
 
 const indexField = document.getElementsByClassName("indexField");
 const postsField = document.getElementById("postsField");
@@ -22,6 +28,7 @@ const fetchPosts = async () => {
     allPosts = await response.json();
     
     allPosts.reverse();
+    currentPosts = allPosts;
     
     displayIndex(allPosts);
     displayPage(currentPage,allPosts);
@@ -143,11 +150,55 @@ for (let tag of tags){
     tag.addEventListener("click",function(){
         currentTags[this.textContent] = !currentTags[this.textContent];
         tag.classList.toggle("selectedTag");
-        console.log(currentTags);
-    });
+    
+    /*
+        if (Object.values(currentTags).includes(true)){
+            currentPosts = allPosts.filter((post)=>{ 
+                let isSelectedTagIncluded = false;
+                for(let postTag of post.tags){
+                    if (currentTags[postTag]){
+                        isSelectedTagIncluded = true;
+                        break;
+                    }
+                }
+                return isSelectedTagIncluded;
+            });
+        }
+        else{
+            currentPosts = allPosts;
+        }
+    */
+
+    searchPosts();
+    }); 
 }
 
 searchButton.addEventListener("click",()=>{
+    const searchKeyword = searchForm.value;
+    
+    let filteredPosts = currentPosts.filter((post)=>{
+        return post.title.includes(searchKeyword);
+    })
+    .filter((post)=>{
+        const postDate = new Date(post.date);
+        const startDate = new Date(dateForm[0].value); 
+        const endDate = new Date(dateForm[1].value);
+
+        return ((startDate <= postDate) || isNaN(startDate))  && ((endDate >= postDate) || isNaN(endDate));
+    })
+
+    if (Object.values(currentTags).includes(true)){
+
+    }
+    
+
+    displayIndex(filteredPosts);
+    displayPage(currentPage, filteredPosts);
+});
+
+/* タグボタンと検索ボタンを押すたびに、サーチするので、関数が必要。 */
+
+const searchPosts = ()=>{
     const searchKeyword = searchForm.value;
     
     let filteredPosts = allPosts.filter((post)=>{
@@ -162,7 +213,7 @@ searchButton.addEventListener("click",()=>{
     })
 
     if (Object.values(currentTags).includes(true)){
-        filteredPosts = filteredPosts.filter((post)=>{ 
+        filteredPosts = filteredPosts.filter(post => {
             let isSelectedTagIncluded = false;
             for(let postTag of post.tags){
                 if (currentTags[postTag]){
@@ -173,8 +224,9 @@ searchButton.addEventListener("click",()=>{
             return isSelectedTagIncluded;
         });
     }
-    
+
+    currentPage = 1;
 
     displayIndex(filteredPosts);
     displayPage(currentPage, filteredPosts);
-});
+}

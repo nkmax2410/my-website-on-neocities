@@ -196,19 +196,40 @@ hr{
 .dateForm{
     width:48%;
 }
+
+.tagField{
+    width:100%;
+    display:flex;
+    margin:30px auto;
+    position:relative;
+}
+.tagField>p{
+    float:left;
+    position:absolute;
+    top:0;
+    left:1rem;
+}
+
+/*
 .tagField{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin:10px;
+    margin:30px auto;
+    width:70%;
 }
+*/
+/*
 .tagField>p{
     width:3rem;
 }
+*/
 .tagField>ul{
+    width:70%;
     display:flex;
-    justify-content:space-around;
+    justify-content:center;
     align-items:center;
+    gap: 20px;
     list-style:none;
     flex-grow:1;
 }
