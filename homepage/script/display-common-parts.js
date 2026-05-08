@@ -42,4 +42,4 @@ const googleFontCode = `
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&display=swap" rel="stylesheet">
 `
 
-document.head.insertAdjacentHTML('beforeend', googleFontsCode);
+document.head.insertAdjacentHTML('beforeend', googleFontCode);
