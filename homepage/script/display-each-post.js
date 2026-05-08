@@ -23,7 +23,16 @@ const fetchAPost = async() => {
     title.textContent = postOfThisPage.title + title.textContent;
     articleFieldTitle.textContent = postOfThisPage.title;
     articleFieldContent.innerHTML = postOfThisPage.body;
-    articleDateField.innerHTML = `<time datetime="${postOfThisPage.date}">` + postOfThisPage.date.replace(/-/g,"/").replace(/\/0/g,"/") + "</time>";
+    let tagUl = "<ul class='IBM-font'>"; 
+    for (let tag of postOfThisPage.tags){
+        tagUl += `<li>${tag}</li>`;
+    }
+    tagUl += "</ul>"
+    articleDateField.innerHTML = 
+    `<div class="post-data">
+        <div class="post-tags"><p>タグ:</p>${tagUl}</div>
+        <p><time datetime="${postOfThisPage.date}">${postOfThisPage.date.replace(/-/g,"/").replace(/\/0/g,"/")}</time></p>
+    </div>`;
 }
 
 fetchAPost();

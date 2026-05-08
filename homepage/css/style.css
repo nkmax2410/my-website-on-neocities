@@ -279,12 +279,14 @@ hr{
     padding:15px;
     margin:0px;
 }
+/*
 #articleDateField {
     background-color:#414141;
     padding:10px;
     margin:0px;
     text-align:right;
 }
+*/
 
 /* フッター */
 
@@ -377,13 +379,14 @@ footer a{
     background-color:#272727;
     padding:10px;
 }
-.post>.post-data{
+.post-data{
     background-color:#414141;
     padding: 10px;
     display:flex;
     justify-content:space-between;
+    align-content:center;
 }
-.post>.post-data ul{
+.post-data ul{
     margin:0 10px;
     list-style:none;
 }
