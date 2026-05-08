@@ -144,10 +144,11 @@ hr{
     align-items:flex-start;
 }
 .indexArticle section{
-    margin-right:17.5px;
+    margin-right:40px;
+    flex-grow:1;
 }
 .chatContainer{
-    width:275px;
+    width:300px;
     flex-shrink:0;
 }
 .chatField{
@@ -158,6 +159,36 @@ hr{
     padding:5px;
     display:flex;
     align-items:flex-end;
+}
+
+.newestPostsField>a{
+    text-decoration:none;
+}
+.newestPost{
+    border: 2px solid #ffffff;
+    border-radius:10px;
+    overflow:hidden;
+    margin:20px 0;
+    box-shadow: 5px 5px 0px 0px #ffffffc4;
+}
+.newestPost>h3{
+    background-color:#272727;
+    padding:5px;
+    font-size:1.1rem;
+}
+.newestPostData{
+    background-color:#414141;
+    padding:0 10px;
+    display:flex;
+    justify-content:space-between;
+}
+.newestPostData ul{
+    list-style:none;
+}
+.newestPostData li{
+    line-height:1.5rem;
+    padding:0 5px;
+    margin:0 10px;
 }
 
 /* 記事検索欄 */
@@ -444,6 +475,15 @@ footer a{
     .chatContainer{
         width:215px;
         font-size:0.8rem;
+    }
+    .newestPost>h3{
+        font-size:1rem;
+    }
+    .newestPostData{
+        font-size:0.8rem;
+    }
+    .indexArticle section{
+        margin-right:28px;
     }
 @media screen and (max-width: 599px){
     header{
