@@ -119,7 +119,7 @@ nav a {
 
 /* アーティクル(共通) */
 article{
-    width: calc(1024px*0.9);
+    width: 960px;
     margin: 0 auto;
     padding: 20px 30px 40px;
     background-color:#000000;
@@ -465,7 +465,10 @@ footer a{
     border-radius:5px;
     padding:0 5px;
 }
-
+#postsField{
+    position:relative;
+    right:2px;
+}
 #postsField a{
     text-decoration: none;
     display:block;
@@ -534,8 +537,8 @@ footer a{
     }
     */
     .newestPostsContainer{
-        padding-right: 17.5px;
-        padding-left: 12.5px;
+        padding-right: 15.5px;
+        padding-left: 10.5px;
         padding-bottom:2.5px
     }
     .indexArticle>hr{
@@ -548,7 +551,13 @@ footer a{
     }
     .chatField{
         height:350px;
+    }/*
+    .newestPost>h3{
+        font-size:1.1rem;
     }
+    .newestPostData{
+        font-size:1rem;
+    }*/
 @media screen and (max-width: 599px){
     header{
         height: auto;
@@ -572,6 +581,10 @@ footer a{
     }
     .main-visual h1{
         font-size:2.2rem;
+    }
+    article{
+        padding-right:20px;
+        padding-left:20px;
     }
     /*
     .main-visual p{
