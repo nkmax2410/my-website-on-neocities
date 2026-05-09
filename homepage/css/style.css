@@ -143,7 +143,7 @@ hr{
     justify-content:space-between;
     align-items:flex-start;
 }
-.indexArticle section{
+.indexArticle>section{
     margin-right:40px;
     flex-grow:1;
 }
@@ -515,6 +515,9 @@ footer a{
     .main-visual-content{
         left:-2.5%;
     }
+    article{
+        padding:20px 40px;
+    }
     article h1{
         font-size:1.75rem;
     }
@@ -543,6 +546,9 @@ footer a{
         width:90%;
         margin:0 auto;
         font-size:1rem;
+    }
+    .indexArticle>section{
+        margin: 0 auto;
     }
 }
 }
