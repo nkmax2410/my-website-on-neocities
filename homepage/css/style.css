@@ -153,6 +153,7 @@ hr{
 .chatContainer{
     width:300px;
     flex-shrink:0;
+    margin-bottom:1.5rem;
     display:flex;
     flex-direction:column;
 }
@@ -174,7 +175,7 @@ hr{
 }
 
 .newestPostsField>h2{
-    font-size:1rem;
+    font-size: 1rem;
 }
 .newestPostsField>a{
     text-decoration:none;
@@ -204,13 +205,14 @@ hr{
 .newestPost>h3{
     background-color:#272727;
     padding:5px;
-    font-size:1.1rem;
+    font-size:1rem;
 }
 .newestPostData{
     background-color:#414141;
     padding:0 10px;
     display:flex;
     justify-content:space-between;
+    font-size:0.9rem;
 }
 .newestPostData ul{
     list-style:none;
