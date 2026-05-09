@@ -119,7 +119,7 @@ nav a {
 
 /* アーティクル(共通) */
 article{
-    width: 1024px;
+    width: calc(1024px*0.9);
     margin: 0 auto;
     padding: 20px 30px 40px;
     background-color:#000000;
@@ -165,8 +165,17 @@ hr{
     display:flex;
     align-items:flex-end;
     margin-bottom:15px;
+    position:relative;
+}
+.chatField>iframe{
+    position:absolute;
+    bottom:0;
+    left:0;
 }
 
+.newestPostsField>h2{
+    font-size:1rem;
+}
 .newestPostsField>a{
     text-decoration:none;
 }
@@ -210,6 +219,9 @@ hr{
     line-height:1.5rem;
     padding:0 5px;
     margin:0 10px;
+}
+.newestPostsContainer>p{
+    text-align:center;
 }
 
 /* 記事検索欄 */

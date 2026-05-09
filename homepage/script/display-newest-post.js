@@ -1,6 +1,6 @@
 "use strict";
 const newestPostsField = document.querySelector(".newestPostsField");
-const numOfPostsToDisplay = 3;
+const numOfPostsToDisplay = 2;
 
 const fetchNewestPosts = async () =>{
     const res = await fetch("./source/posts.json");
