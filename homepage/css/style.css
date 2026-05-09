@@ -121,7 +121,7 @@ nav a {
 article{
     width: 1024px;
     margin: 0 auto;
-    padding: 20px 30px;
+    padding: 20px 30px 40px;
     background-color:#000000;
     line-height:2rem;
 }
@@ -170,6 +170,21 @@ hr{
     overflow:hidden;
     margin:20px 0;
     box-shadow: 5px 5px 0px 0px #ffffffc4;
+    position:relative;
+}
+.newestPost::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:#FFFFFF;
+    opacity:0;
+    transition:opacity 0.2s;
+}
+.newestPost:hover::after{
+    opacity:0.3;
 }
 .newestPost>h3{
     background-color:#272727;
@@ -515,8 +530,10 @@ footer a{
     .main-visual-content{
         left:-2.5%;
     }
-    article{
-        padding:20px 40px;
+    .newestPostsContainer{
+        padding-right: 17.5px;
+        padding-left: 12.5px;
+        padding-bottom:2.5px
     }
     article h1{
         font-size:1.75rem;
