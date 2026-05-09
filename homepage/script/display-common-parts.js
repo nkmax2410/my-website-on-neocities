@@ -5,7 +5,7 @@ const prefix = currentUrl.includes("/articles/") ? "../" : "./";
 const header = document.querySelector("header");
 const footer = document.querySelector("footer");
 const title = document.querySelector("title");
-const favicon = document.querySelector("link");
+const favicon = document.querySelector("link[rel='icon']");
 const siteTitle = "思考停止のサイト";
 
 favicon.href = prefix + "image/favicon.png";
@@ -36,10 +36,6 @@ const display = async() =>{
 display()
 
 /* 上は非同期処理なので以下の処理は先にやる */
-const googleFontCode = `
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&display=swap" rel="stylesheet">
-`
+const googleFontCode = `<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&display=swap" rel="stylesheet">`
 
 document.head.insertAdjacentHTML('beforeend', googleFontCode);
