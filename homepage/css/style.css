@@ -7,7 +7,7 @@
 body {
     background-color: #2c2c2c;
     color: #FFFFFF;
-    font-style:"Noto Sans JP",sans-serif
+    font-style:"Noto Sans JP",sans-serif;
 }
 
 a {
@@ -141,24 +141,30 @@ hr{
 .indexArticle{
     display:flex;
     justify-content:space-between;
-    align-items:flex-start;
+    align-items:stretch;
 }
 .indexArticle>section{
     margin-right:40px;
     flex-grow:1;
 }
+.indexArticle>hr{
+    display:none;
+}
 .chatContainer{
     width:300px;
     flex-shrink:0;
+    display:flex;
+    flex-direction:column;
 }
 .chatField{
-    height:300px; 
+    flex-grow:1;
     border:3px solid #ffffff;
     border-radius:10px;
     overflow:scroll;
     padding:5px;
     display:flex;
     align-items:flex-end;
+    margin-bottom:15px;
 }
 
 .newestPostsField>a{
@@ -474,11 +480,17 @@ footer a{
     }
     article{
         width:95%;
-        padding:20px 20px;
+        margin:0 auto;
+        /*padding:20px 20px;*/
     }
+    .indexArticle>section{
+        margin-right:0;
+    }
+    /*
     article h1{
         font-size:24px;
     }
+    */
     .indexButton{
         width:40px;
         height:40px;
@@ -487,10 +499,16 @@ footer a{
     .searchContainer{
         width:85%;
     }
-    .chatContainer{
-        width:215px;
-        font-size:0.8rem;
+
+    .indexArticle{
+        display:block;
     }
+    .chatContainer{
+        /*width:215px;*/
+        width:250px;
+        /*font-size:0.8rem;*/
+    }
+    /*
     .newestPost>h3{
         font-size:1rem;
     }
@@ -498,7 +516,24 @@ footer a{
         font-size:0.8rem;
     }
     .indexArticle section{
-        margin-right:28px;
+        margin-right:25px;
+    }
+    */
+    .newestPostsContainer{
+        padding-right: 17.5px;
+        padding-left: 12.5px;
+        padding-bottom:2.5px
+    }
+    .indexArticle>hr{
+        display:block;
+    }
+    .chatContainer{
+        width:70%;
+        margin:0 auto;
+        font-size:1rem;
+    }
+    .chatField{
+        height:350px;
     }
 @media screen and (max-width: 599px){
     header{
@@ -524,17 +559,18 @@ footer a{
     .main-visual h1{
         font-size:2.2rem;
     }
+    /*
     .main-visual p{
         font-size:0.85rem;
-    }
+    }*/
     .main-visual-content{
         left:-2.5%;
     }
-    .newestPostsContainer{
+    /*.newestPostsContainer{
         padding-right: 17.5px;
         padding-left: 12.5px;
         padding-bottom:2.5px
-    }
+    }*/
     article h1{
         font-size:1.75rem;
     }
@@ -559,13 +595,16 @@ footer a{
     .indexArticle{
         display:block;
     }
-    .chatContainer{
+    /*.chatContainer{
         width:90%;
         margin:0 auto;
         font-size:1rem;
+    }*/
+    .chatContainer{
+        width:90%;
     }
-    .indexArticle>section{
+    /*.indexArticle>section{
         margin: 0 auto;
-    }
+    }*/
 }
 }
