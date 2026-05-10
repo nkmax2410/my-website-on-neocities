@@ -226,6 +226,30 @@ hr{
     text-align:center;
 }
 
+.updateContainer{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    height:300px;
+}
+.updateField{
+    border:2px solid #ffffff;
+    height:95%;
+    width:300px;
+    overflow:scroll;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    padding:5px 0;
+}
+.update{
+    border-bottom:2px dashed #ffffff;
+    padding:10px 20px;
+}
+.update:last-child{
+    border-bottom:0px;
+}
+
 /* 記事検索欄 */
 .searchField{
     display:flex;
@@ -633,5 +657,19 @@ footer a{
     /*.indexArticle>section{
         margin: 0 auto;
     }*/
+    .updateContainer{
+        width:95%;
+        margin:0 auto;
+        flex-direction:column;
+        align-items:start;
+    }
+    .updateContainer>hgroup{
+        padding:10px 12px;
+    }
+    .updateField{
+        margin:0 auto;
+        width:90%;;
+    }
+
 }
 }
