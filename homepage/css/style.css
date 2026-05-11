@@ -153,14 +153,14 @@ hr{
 .chatContainer{
     width:300px;
     flex-shrink:0;
-    margin-bottom:1.5rem;
+    margin-bottom:0.5rem;
     display:flex;
     flex-direction:column;
 }
 .chatField{
     flex-grow:1;
     border:3px solid #ffffff;
-    border-radius:10px;
+    /*border-radius:10px;*/
     overflow:scroll;
     padding:5px;
     display:flex;
