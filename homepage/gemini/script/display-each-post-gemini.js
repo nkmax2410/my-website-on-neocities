@@ -6,7 +6,6 @@ const title = document.querySelector("title");
 const articleFieldTitle = document.getElementById("articleFieldTitle");
 const articleFieldContent = document.getElementById("articleFieldContent");
 const articleDateField = document.getElementById("articleDateField");
-/* const title = document.querySelector("title"); display-common-parts.jsにおいてすでに定義されています。*/
 
 const thisPageIdx = Number(fileName.match(/^\d+/)[0].replace(/^0+/, ""))-1;
 
