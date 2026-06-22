@@ -204,7 +204,7 @@ searchButton.addEventListener("click",()=>{
     }
     
 
-    displayIndex(filteredPosts);
+    displayIndex(currentPage, filteredPosts);
     displayPage(currentPage, filteredPosts);
 });
 
@@ -239,6 +239,6 @@ const searchPosts = ()=>{
 
     currentPage = 1;
 
-    displayIndex(filteredPosts);
+    displayIndex(currentPage, filteredPosts);
     displayPage(currentPage, filteredPosts);
 }
