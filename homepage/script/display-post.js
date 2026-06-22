@@ -2,26 +2,17 @@
 const isDeepLayer = window.location.pathname.includes("/articles/");
 const prefix = isDeepLayer ? "../" : "./"; 
 
-/*
-let currentPage = 0;
-if (localStorage.getItem("currentPageLS")){
-    currentPage = localStorage.getItem("currentPageLS");
-}
-else{
-    currentPage = 1;
-    localStorage.setItem("currentPageLS",currentPage);
-}
-
-currentPageを保存しても、検索条件は保存されないから、意味無くないか?
-*/ 
 let currentPage = 1;
 
 const postsPerPage = 10;
 let allPosts = [];
 let currentPosts = [];
+const indexButtonNumBorder = 2 // インデックス表示の調整に使用。
 
-const indexField = document.getElementsByClassName("indexField");
-const postsField = document.getElementById("postsField");
+const indexButtons = document.querySelectorAll(".indexButton");
+const indexButtonsLower = document.querySelectorAll(".indexButtonLower");
+const indexDots = document.querySelectorAll(".indexDots");
+const indexDotsLower = document.querySelectorAll(".indexDotsLower")
 
 const fetchPosts = async () => {
     const response = await fetch("./source/posts.json");
@@ -30,75 +21,77 @@ const fetchPosts = async () => {
     allPosts.reverse();
     currentPosts = allPosts;
     
-    displayIndex(allPosts);
+    displayIndex(currentPage, allPosts);
     displayPage(currentPage,allPosts);
-}
+};
 
-const displayIndex = (postArray)=>{
+const displayIndex = (currentPage, postArray)=>{
+    indexButtons.forEach(indexButton => {
+        if(indexButton.classList.contains("invisible")){
+            indexButton.classList.remove("invisible");
+        }
+    })
+    indexDots.forEach(indexDots => {
+        if(indexDots.classList.contains("invisible")){
+            indexDots.classList.remove("invisible");
+        }
+    })
+    indexButtonsLower.forEach(indexButton => {
+        if(indexButton.classList.contains("invisible")){
+            indexButton.classList.remove("invisible");
+        }
+    })
+    indexDotsLower.forEach(indexDots => {
+        if(indexDots.classList.contains("invisible")){
+            indexDots.classList.remove("invisible");
+        }
+    })
+    for (const indexButton of [...indexButtons].slice(1,indexButtons.length - 1)) {
+        indexButton.removeEventListener("click", clicked);
+    }
+
+    for (const indexButton of [...indexButtonsLower].slice(1,indexButtonsLower.length - 1)) {
+        indexButton.removeEventListener("click", clicked);
+    }
+
     const numOfPosts = postArray.length;
-    const numOfPages = Math.ceil(numOfPosts / postsPerPage)
+    const numOfPages = Math.ceil(numOfPosts / postsPerPage);
 
-    let indexHtml = "<ul>";
-    for (let i=1; i<=numOfPages; i++){
-        indexHtml += `<li class="indexButton">${i}</li>`;
+    if (currentPage <= indexButtonNumBorder){
+        for(let i=0; i<=indexButtonNumBorder - currentPage; i++){
+            indexButtons[i].classList.add("invisible");
+        }
+        indexDots[0].classList.add("invisible");
+        for(let i=0; i<=indexButtonNumBorder - currentPage; i++){
+            indexButtonsLower[i].classList.add("invisible");
+        }
+        indexDotsLower[0].classList.add("invisible");
     }
-    indexHtml += "</ul>";
 
-    let indexHtmlLower = "<ul>";
-    for (let i=1; i<=numOfPages; i++){
-        indexHtmlLower += `<li class="indexButtonLower">${i}</li>`;
+    if (currentPage > (numOfPages - indexButtonNumBorder)){
+        for(let i=indexButtons.length - (indexButtonNumBorder - (numOfPages - currentPage)); i<indexButtons.length; i++){
+            indexButtons[i].classList.add("invisible");
+        }
+        indexDots[1].classList.add("invisible");
+
+        for(let i=indexButtons.length - (indexButtonNumBorder - (numOfPages - currentPage)); i<indexButtons.length; i++){
+            indexButtonsLower[i].classList.add("invisible");
+        }
+        indexDotsLower[1].classList.add("invisible");
     }
-    indexHtmlLower += "</ul>";
 
-    indexField[0].innerHTML = indexHtml;
-    indexField[1].innerHTML = indexHtmlLower;
-    
-    const allButtons = document.querySelectorAll(".indexButton, .indexButtonLower");
-    const indexButtons = document.querySelectorAll(".indexButton");
-    const indexButtonsLower = document.querySelectorAll(".indexButtonLower");
-    
-    allButtons.forEach(button => button.classList.remove("is-active"));
-    
-    /*
-    indexButtons[currentPage-1].style.backgroundColor = "#d1d1d1";
-    indexButtonsLower[currentPage-1].style.backgroundColor = "#d1d1d1";
-    indexButtons[currentPage-1].style.color = "#000000";
-    indexButtonsLower[currentPage-1].style.color = "#000000";
-    */
-    
-    indexButtons[currentPage-1].classList.add("is-active");
-    indexButtonsLower[currentPage-1].classList.add("is-active");
+    for (let i=1; i<indexButtons.length-1; i++){
+        indexButtons[i].textContent = currentPage - indexButtonNumBorder + i;
+        indexButtonsLower[i].textContent = currentPage - indexButtonNumBorder + i;
+    }
 
+    for (const indexButton of [...indexButtons].slice(1,indexButtons.length - 1)) {
+        indexButton.addEventListener("click", clicked);
+    }
 
-    for (let indexButton of indexButtons){
-    indexButton.addEventListener("click", function(){
-        currentPage = Number(this.textContent);
-        displayPage(currentPage,postArray);
-        indexButtons.forEach(button => {
-            button.classList.remove("is-active");
-        })
-        indexButtonsLower.forEach(button => {
-            button.classList.remove("is-active");
-        })
-        indexButtons[currentPage-1].classList.add("is-active");
-        indexButtonsLower[currentPage-1].classList.add("is-active");
-    })
-    };
-
-    for (let indexButton of indexButtonsLower){
-    indexButton.addEventListener("click", function(){
-        currentPage = Number(this.textContent);
-        displayPage(currentPage,postArray);
-        indexButtons.forEach(button => {
-            button.classList.remove("is-active");
-        })
-        indexButtonsLower.forEach(button => {
-            button.classList.remove("is-active");
-        })
-        indexButtons[currentPage-1].classList.add("is-active");
-        indexButtonsLower[currentPage-1].classList.add("is-active");
-    })
-    };
+    for (const indexButton of [...indexButtonsLower].slice(1,indexButtonsLower.length - 1)) {
+        indexButton.addEventListener("click", clicked);
+    }
 };
 
 const displayPage = (currentPage,postArray)=> {
@@ -123,7 +116,6 @@ const displayPage = (currentPage,postArray)=> {
             <p><time datetime="${post.date}">${dateWithSlash}</time></p>
         </div>`;
 
-        console.log(postsHtml);
         postsHtml += "</div>";
         postsHtml += "</a>";
     });
@@ -132,6 +124,15 @@ const displayPage = (currentPage,postArray)=> {
 };
 
 fetchPosts();
+
+/*
+イベントリスナー用関数定義
+*/
+function clicked(event){
+    currentPage = Number.parseInt(event.currentTarget.textContent);
+    displayIndex(currentPage, allPosts);
+    displayPage(currentPage, allPosts);
+}
 
 /*
 現在のページを示す変数はグローバルな場所に用意しておく。

@@ -431,7 +431,7 @@ footer a{
 }
 .indexField ul {
     display: flex;
-    justify-content:center;
+    justify-content:space-around;
     align-items:center;
     gap: 20px;
     list-style:none;
@@ -442,7 +442,6 @@ footer a{
     background-color:#272727;
     width:45px;
     height:45px;
-    font-size:1.2rem;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -458,6 +457,12 @@ footer a{
 .indexButton.is-active, .indexButtonLower.is-active{
     background-color:#d1d1d1;
     color:#000000;
+}
+.indexButtonStatic, .indexButtonStaticLower{
+    width:7em;
+}
+.invisible{
+    visibility:hidden;
 }
 
 .post{
@@ -501,6 +506,10 @@ footer a{
 .post-tags{
     display:flex;
     align-items:center;
+}
+.post-tags>ul{
+    display:flex;
+    gap:5px;
 }
 .post-tags li{
     background-color:#5a5a5a;
@@ -550,10 +559,13 @@ footer a{
         font-size:24px;
     }
     */
-    .indexButton{
+    .indexButtonm, .indexButtonLower{
         width:40px;
         height:40px;
         font-size:1rem;
+    }
+    .indexButtonStatic{
+        width:7em;
     }
     .searchContainer{
         width:85%;
@@ -649,11 +661,32 @@ footer a{
     .post h2{
         font-size:1.3rem;
     }
+    .post-data{
+        font-size:0.7rem;
+    }
     #articleFieldTitle{
         font-size:24px;
     }
-    .indexButton{
-        padding:5px 15px;
+    .indexButton, .indexButtonLower{
+        padding:3px 3px;
+        width:30px;
+        height:30px;
+    }
+    .indexButtonStatic, .indexButtonStaticLower{
+        font-size:0;
+        width:40px;
+    }
+    .indexButtonStatic:first-of-type::after, .indexButtonStaticLower:first-of-type::after{
+        content:"最初";
+        font-size:13px;
+        height:100%;
+        line-height:1rem;
+    }
+    .indexButtonStatic:last-of-type::after, .indexButtonStaticLower:last-of-type::after{
+        content:"最後";
+        font-size:13px;
+        height:100%;
+        line-height:1rem;
     }
     .searchField{
         width:90%;
