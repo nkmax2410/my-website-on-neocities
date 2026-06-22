@@ -13,7 +13,8 @@ const indexButtons = document.querySelectorAll(".indexButton");
 const indexButtonsLower = document.querySelectorAll(".indexButtonLower");
 const indexDots = document.querySelectorAll(".indexDots");
 const indexDotsLower = document.querySelectorAll(".indexDotsLower")
-
+console.log(indexButtons)
+console.log(indexDots);
 const fetchPosts = async () => {
     const response = await fetch("./source/posts.json");
     allPosts = await response.json();
@@ -59,11 +60,11 @@ const displayIndex = (currentPage, postArray)=>{
 
     if (currentPage <= indexButtonNumBorder){
         for(let i=0; i<=indexButtonNumBorder - currentPage; i++){
-            indexButtons[i]?.classList.add("invisible");
+            indexButtons[i].classList.add("invisible");
         }
         indexDots[0].classList.add("invisible");
         for(let i=0; i<=indexButtonNumBorder - currentPage; i++){
-            indexButtonsLower[i]?.classList.add("invisible");
+            indexButtonsLower[i].classList.add("invisible");
         }
         indexDotsLower[0].classList.add("invisible");
     }
