@@ -13,8 +13,6 @@ const indexButtons = document.querySelectorAll(".indexButton");
 const indexButtonsLower = document.querySelectorAll(".indexButtonLower");
 const indexDots = document.querySelectorAll(".indexDots");
 const indexDotsLower = document.querySelectorAll(".indexDotsLower")
-console.log(indexButtons)
-console.log(indexDots);
 const fetchPosts = async () => {
     const response = await fetch("./source/posts.json");
     allPosts = await response.json();
