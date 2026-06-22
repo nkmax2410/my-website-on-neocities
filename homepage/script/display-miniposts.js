@@ -13,7 +13,7 @@ const renderMiniposts = (json)=>{
         html += "</div>";
     });
     minipostsField.innerHTML = html;
-    console.log(html);
+    
 }
 
 const fetchAndRenderMiniposts = async () =>{

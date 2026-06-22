@@ -15,7 +15,7 @@ const fetchAPost = async() => {
 
     const postOfThisPage = data[thisPageIdx];
 
-    console.log("title.textContent")
+    
     title.textContent = postOfThisPage.title + title.textContent;
     articleFieldTitle.textContent = postOfThisPage.title;
     articleFieldContent.innerHTML = postOfThisPage.body;

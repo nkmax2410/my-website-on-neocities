@@ -13,7 +13,7 @@ const renderUpdates = (json)=>{
         html += "</div>";
     });
     updateField.innerHTML = html;
-    console.log(html);
+    
 }
 
 const fetchAndRenderUpdates = async () =>{

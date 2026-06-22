@@ -123,7 +123,7 @@ const displayPage = (currentPage,postArray)=> {
             <p><time datetime="${post.date}">${dateWithSlash}</time></p>
         </div>`;
 
-        console.log(postsHtml);
+        
         postsHtml += "</div>";
         postsHtml += "</a>";
     });
