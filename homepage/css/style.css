@@ -226,13 +226,31 @@ hr{
     text-align:center;
 }
 
-.updateContainer{
+.updateContainer, .minipostsContainer{
     display:flex;
     justify-content:space-around;
     align-items:center;
     height:300px;
 }
-.updateField{
+.updateContainer{
+    flex-direction:row-reverse;
+}
+
+.minipostsContainer>hgroup{
+    position:relative;
+    left:2%;
+    line-height:2;
+}
+
+.updateContainer>hgroup{
+    text-align:right;
+    position:relative;
+    right:5%;
+    /* ここまでの3つはもとに戻す際に削除 */
+    line-height:2;
+}
+
+.updateField, .minipostsField{
     border:2px solid #ffffff;
     height:95%;
     width:300px;
@@ -242,11 +260,11 @@ hr{
     justify-content:flex-start;
     padding:5px 0;
 }
-.update{
+.update,.minipost{
     border-bottom:2px dashed #ffffff;
     padding:10px 20px;
 }
-.update:last-child{
+.update:last-child,.minipost:last-child{
     border-bottom:0px;
 }
 
@@ -657,7 +675,7 @@ footer a{
     /*.indexArticle>section{
         margin: 0 auto;
     }*/
-    .updateContainer{
+    .updateContainer,.minipostsContainer{
         width:95%;
         margin:0 auto;
         flex-direction:column;
@@ -665,8 +683,14 @@ footer a{
     }
     .updateContainer>hgroup{
         padding:10px 12px;
+        text-align:left;
+        position:static;
     }
-    .updateField{
+    .minipostsContainer>hgroup{
+        padding:10px 12px;
+        position:static;
+    }
+    .updateField,.minipostsField{
         margin:0 auto;
         width:90%;;
     }
