@@ -678,7 +678,7 @@ footer a{
     .minipostsContainer{
         flex-direction: row-reverse;
         justify-content: space-around;
-        height: 400px;
+        height: 350px;
         width: auto;
     }
     .minipostsContainer>hgroup{
