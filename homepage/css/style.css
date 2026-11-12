@@ -518,9 +518,8 @@ footer a{
     position: relative;
     width: 90%;
     padding-top: 56.5%;
-    margin: 20px auto;
+    margin: 50px auto;
     height: 0;
-    overflow: hidden;
 }
 .video-container-youtube>iframe{
     position: absolute;
