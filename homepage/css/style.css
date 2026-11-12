@@ -1,3 +1,4 @@
+/* ☆共通☆ */
 * {
     padding: 0;
     margin: 0;
@@ -7,7 +8,7 @@
 body {
     background-color: #2c2c2c;
     color: #FFFFFF;
-    font-style:"Noto Sans JP",sans-serif;
+    font-style:"Noto Sans JP", sans-serif;
 }
 
 a {
@@ -22,7 +23,29 @@ address {
     text-decoration:underline;
 }
 
-/* ヘッダー */
+article{
+    width: 960px;
+    margin: 0 auto;
+    padding: 20px 30px 40px;
+    background-color:#000000;
+    line-height:2rem;
+}
+
+article h1{
+    margin: 0 0 20px;
+}
+
+p, .IBM-font{
+    font-family:"IBM Plex Sans JP", "Noto Sans JP",sans-serif;
+}
+hr{
+    margin: 30px 0;
+}
+.display-none{
+    display: none;
+}
+
+/* ☆ヘッダー☆ */
 header{
     background-color:#272727;
     width: 100%;
@@ -85,7 +108,7 @@ nav a {
     position:relative;
 }
 
-/* メインビジュアル */
+/* ☆メインビジュアル☆ */
 
 .main-visual{
     /* width: 100%;
@@ -117,27 +140,36 @@ nav a {
     font-size:4rem;
 }
 
-/* アーティクル(共通) */
-article{
-    width: 960px;
-    margin: 0 auto;
-    padding: 20px 30px 40px;
-    background-color:#000000;
-    line-height:2rem;
+/* ☆フッター☆ */
+
+footer {
+    width: 100%;
+    height: 350px;
+    background-color:#272727;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 }
 
-article h1{
-    margin: 0 0 20px;
+footer h2{
+    margin-bottom:10px;
 }
 
-p, .IBM-font{
-    font-family:"IBM Plex Sans JP", "Noto Sans JP",sans-serif;
+footer > *{
+    margin:30px auto;
 }
-hr{
-    margin: 30px 0;
+
+footer a{
+    text-decoration:none;
 }
-/* articleページ */
-/* index */
+
+.thisWebsiteSince{
+    font-size:0.83rem;
+}
+
+/* ☆index.html☆ */
 .indexArticle{
     display:flex;
     justify-content:space-between;
@@ -150,6 +182,7 @@ hr{
 .indexArticle>hr{
     display:none;
 }
+/*
 .chatContainer{
     width:300px;
     flex-shrink:0;
@@ -157,17 +190,20 @@ hr{
     display:flex;
     flex-direction:column;
 }
+*/
+/*
 .chatField{
     flex-grow:1;
     border:3px solid #ffffff;
     /*border-radius:10px;*/
-    overflow:scroll;
+/*    overflow:scroll;
     padding:5px;
     display:flex;
     align-items:flex-end;
     margin-bottom:15px;
     position:relative;
 }
+*/
 .chatField>iframe{
     position:absolute;
     bottom:0;
@@ -226,7 +262,7 @@ hr{
     text-align:center;
 }
 
-.updateContainer, .minipostsContainer{
+.updateContainer{
     display:flex;
     justify-content:space-around;
     align-items:center;
@@ -234,12 +270,6 @@ hr{
 }
 .updateContainer{
     flex-direction:row-reverse;
-}
-
-.minipostsContainer>hgroup{
-    position:relative;
-    left:2%;
-    line-height:2;
 }
 
 .updateContainer>hgroup{
@@ -250,15 +280,37 @@ hr{
     line-height:2;
 }
 
+.minipostsContainer{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+}
+
+.minipostsContainer>hgroup{
+    position:relative;
+    left:2%;
+    line-height:1;
+    margin-bottom: 20px;
+}
+
 .updateField, .minipostsField{
     border:2px solid #ffffff;
-    height:95%;
-    width:300px;
+    /*height:95%;*/
+    /*width:300px;*/
     overflow:scroll;
     display:flex;
     flex-direction:column;
     justify-content:flex-start;
     padding:5px 0;
+}
+.updateField{
+    height: 95%;
+    width:300px;
+}
+.minipostsField{
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0px;
 }
 .update,.minipost{
     border-bottom:2px dashed #ffffff;
@@ -268,6 +320,30 @@ hr{
     border-bottom:0px;
 }
 
+
+
+.chatContainer{
+    height: 400px;
+    margin-bottom:0.5rem;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.chatField{
+    width: 350px;
+    height: 95%;
+    border:3px solid #ffffff;
+    /*border-radius:10px;*/
+    overflow:scroll;
+    padding:5px;
+    display:flex;
+    align-items:flex-end;
+    margin-bottom:15px;
+    position:relative;
+}
+
+/* ☆articles.html☆ */
 /* 記事検索欄 */
 .searchField{
     display:flex;
@@ -304,6 +380,8 @@ hr{
 .dateForm{
     width:48%;
 }
+
+/* タグ欄 */
 
 .tagField{
     width:100%;
@@ -373,59 +451,7 @@ hr{
     color:#000000;
 }
 
-/* 各個の記事 */
-#articleFieldHeader {
-    border: 2px solid #ffffff;
-    border-radius:10px;
-    overflow:hidden;
-    margin-bottom:20px;
-    box-shadow: 8px 8px 0px 0px #ffffffc4;
-}
-#articleFieldTitle{
-    background-color:#272727;
-    font-size:24px;
-    padding:15px;
-    margin:0px;
-}
-/*
-#articleDateField {
-    background-color:#414141;
-    padding:10px;
-    margin:0px;
-    text-align:right;
-}
-*/
-
-/* フッター */
-
-footer {
-    width: 100%;
-    height: 350px;
-    background-color:#272727;
-    text-align:center;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-}
-
-footer h2{
-    margin-bottom:10px;
-}
-
-footer > *{
-    margin:30px auto;
-}
-
-footer a{
-    text-decoration:none;
-}
-
-.thisWebsiteSince{
-    font-size:0.83rem;
-}
-
-/* js */
+/* インデックス欄 */
 .indexField {
     margin: 30px auto;
 }
@@ -464,6 +490,29 @@ footer a{
 .invisible{
     visibility:hidden;
 }
+
+/* 各個の記事 */
+#articleFieldHeader {
+    border: 2px solid #ffffff;
+    border-radius:10px;
+    overflow:hidden;
+    margin-bottom:20px;
+    box-shadow: 8px 8px 0px 0px #ffffffc4;
+}
+#articleFieldTitle{
+    background-color:#272727;
+    font-size:24px;
+    padding:15px;
+    margin:0px;
+}
+/*
+#articleDateField {
+    background-color:#414141;
+    padding:10px;
+    margin:0px;
+    text-align:right;
+}
+*/
 
 .post{
     margin:20px auto;
@@ -527,6 +576,19 @@ footer a{
 }
 
 @media screen and (max-width: 1024px){
+    /* ☆共通☆ */
+    article{
+        width:95%;
+        margin:0 auto;
+        /*padding:20px 20px;*/
+    }
+    .invisible{
+        visibility: visible;
+    }
+    .display-none{
+        display: block;
+    }
+    /* ☆ヘッダー☆ */
     .in-header{
         width:95%;
         align-items:center;
@@ -535,6 +597,7 @@ footer a{
         padding:10px 1.1rem;
         font-size:1rem;
     }
+    /* ☆メインビジュアル☆ */
     .main-visual{
         width:100%;
         height:auto;
@@ -546,38 +609,38 @@ footer a{
     .main-visual h1{
         font-size:2.75rem;
     }
-    article{
-        width:95%;
-        margin:0 auto;
-        /*padding:20px 20px;*/
+    /* ☆index.html☆ */
+    .indexArticle{
+        display:block;
     }
     .indexArticle>section{
         margin-right:0;
     }
+    .newestPostsContainer{
+        padding-right: 15.5px;
+        padding-left: 10.5px;
+        padding-bottom:2.5px
+    }
+    /*.chatContainer{*/
+        /*width:215px;*/
+        /*width:250px;入れ替え前の名残 */
+        /*font-size:0.8rem;*/
+    /*}*/
     /*
     article h1{
         font-size:24px;
     }
     */
-    .indexButtonm, .indexButtonLower{
-        width:40px;
-        height:40px;
+    .chatContainer{
+        /*width:70%; 入れ替え前の名残*/
+        /*margin:0 auto 入れ替え前の名残;*/
         font-size:1rem;
     }
-    .indexButtonStatic{
-        width:7em;
+    .chatField{
+        height:350px;
     }
-    .searchContainer{
-        width:85%;
-    }
-
-    .indexArticle{
+    .indexArticle>hr{
         display:block;
-    }
-    .chatContainer{
-        /*width:215px;*/
-        width:250px;
-        /*font-size:0.8rem;*/
     }
     /*
     .newestPost>h3{
@@ -590,29 +653,61 @@ footer a{
         margin-right:25px;
     }
     */
-    .newestPostsContainer{
-        padding-right: 15.5px;
-        padding-left: 10.5px;
-        padding-bottom:2.5px
-    }
-    .indexArticle>hr{
-        display:block;
-    }
-    .chatContainer{
-        width:70%;
-        margin:0 auto;
-        font-size:1rem;
-    }
-    .chatField{
-        height:350px;
-    }/*
+    /*
     .newestPost>h3{
         font-size:1.1rem;
     }
     .newestPostData{
         font-size:1rem;
     }*/
+    .minipostsContainer{
+        flex-direction: row-reverse;
+        justify-content: space-around;
+        height: 400px;
+        width: auto;
+    }
+    .minipostsContainer>hgroup{
+        margin: auto 0;
+        left: -5%;
+        line-height:2;
+    }
+    .minipostsField{
+        width: 400px;
+        flex: none;
+    }
+    /* ☆articles.html☆ */
+    .indexButtonm, .indexButtonLower{
+        width:40px;
+        height:40px;
+        font-size:1rem;
+    }
+    .indexButtonStatic{
+        width:7em;
+    }
+    .searchContainer{
+        width:85%;
+    }
+@media screen and (max-width: 700px){
+    .chatField{
+        width:300px;
+    }
+    .minipostsField{
+        width: 300px;
+    }
+}
 @media screen and (max-width: 599px){
+    /* ☆共通☆ */
+    article{
+        padding-right:20px;
+        padding-left:20px;
+    }
+    article h1{
+        font-size:1.75rem;
+    }
+    article p{
+        font-size:0.9rem;
+    }
+    /* ☆ヘッダー☆ */
     header{
         height: auto;
     }
@@ -633,12 +728,10 @@ footer a{
         font-size: 1.1rem;
         padding: 10px 0.8rem;
     }
+    
+    /* ☆メインビジュアル☆ */
     .main-visual h1{
         font-size:2.2rem;
-    }
-    article{
-        padding-right:20px;
-        padding-left:20px;
     }
     /*
     .main-visual p{
@@ -647,17 +740,63 @@ footer a{
     .main-visual-content{
         left:-2.5%;
     }
+
+    /* ☆index.html☆ */
     /*.newestPostsContainer{
         padding-right: 17.5px;
         padding-left: 12.5px;
         padding-bottom:2.5px
     }*/
-    article h1{
-        font-size:1.75rem;
+    .indexArticle{
+        display:block;
     }
-    article p{
-        font-size:0.9rem;
+    /*.chatContainer{
+        width:90%;
+        margin:0 auto;
+        font-size:1rem;
+    }*/
+    /*.chatContainer{
+        width:90%;
+    } 入れ替え前の名残*/ 
+    /*.indexArticle>section{
+        margin: 0 auto;
+    }*/
+    .updateContainer,.minipostsContainer{
+        width:95%;
+        margin:0 auto;
+        flex-direction:column;
+        align-items:start;
     }
+    .updateContainer>hgroup{
+        padding:10px 12px;
+        text-align:left;
+        position:static;
+    }
+    .minipostsContainer>hgroup{
+        padding:10px 12px;
+        position:static;
+    }
+    .updateField,.minipostsField{
+        margin:0 auto;
+        width:90%;
+    }
+
+    .chatContainer{
+        flex-direction: column;
+        align-items: stretch;
+        width: 95%;
+        margin: 0 auto;
+    }
+    .chatContainer>hgroup{
+        padding: 10px 12px;
+        position: static;
+    }
+    .chatField{
+        margin: 0 auto;
+        width: 90%;
+    }
+
+    /* ☆articles.html☆ */
     .post h2{
         font-size:1.3rem;
     }
@@ -694,39 +833,5 @@ footer a{
     .searchContainer{
         width:80%;
     }
-    .indexArticle{
-        display:block;
-    }
-    /*.chatContainer{
-        width:90%;
-        margin:0 auto;
-        font-size:1rem;
-    }*/
-    .chatContainer{
-        width:90%;
-    }
-    /*.indexArticle>section{
-        margin: 0 auto;
-    }*/
-    .updateContainer,.minipostsContainer{
-        width:95%;
-        margin:0 auto;
-        flex-direction:column;
-        align-items:start;
-    }
-    .updateContainer>hgroup{
-        padding:10px 12px;
-        text-align:left;
-        position:static;
-    }
-    .minipostsContainer>hgroup{
-        padding:10px 12px;
-        position:static;
-    }
-    .updateField,.minipostsField{
-        margin:0 auto;
-        width:90%;;
-    }
-
 }
 }
