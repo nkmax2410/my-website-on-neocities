@@ -22,7 +22,7 @@ const fetchAPost = async() => {
     
     title.textContent = postOfThisPage.title + title.textContent;
     articleFieldTitle.textContent = postOfThisPage.title;
-    articleFieldContent.innerHTML = postOfThisPage.body;
+    articleFieldContent.innerHTML = "<p>" + postOfThisPage.body + "</p>";
     let tagUl = "<ul class='IBM-font'>"; 
     for (let tag of postOfThisPage.tags){
         tagUl += `<li>${tag}</li>`;
