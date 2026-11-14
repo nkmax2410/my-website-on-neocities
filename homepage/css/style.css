@@ -348,10 +348,10 @@ footer a{
 #access-counter{
     display:flex;
     flex-direction: column;
-    align-items: center
+    align-items: center;
 }
-#access-counter img.counterimg{
-    width: 150px;
+#access-counter img{
+    width: 30px;
 }
 
 
