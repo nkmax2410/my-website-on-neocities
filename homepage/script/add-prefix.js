@@ -19,7 +19,7 @@ const addPrefixImg = (imgsArray)=>{
 
 window.addEventListener("headerFooterLoaded", ()=>{
     const links = document.querySelectorAll("a");
-    const images = document.querySelectorAll("img");
+    const images = document.querySelectorAll("img.img-use-js");
     addPrefixA(links);
     addPrefixImg(images);
 });

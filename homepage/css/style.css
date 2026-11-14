@@ -350,8 +350,8 @@ footer a{
     flex-direction: column;
     align-items: center
 }
-#access-counter img{
-    width: 30px;
+#access-counter img.counterimg{
+    width: 150px;
 }
 
 
