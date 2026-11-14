@@ -344,13 +344,18 @@ footer a{
     margin-bottom:15px;
     position:relative;
 }
+.counters{
+    display:flex;
+    justify-content:center;
+    gap: 50px;
+}
 
-#access-counter{
+.access-counter, .online-counter{
     display:flex;
     flex-direction: column;
     align-items: center;
 }
-#access-counter img{
+.access-counter img, .online-counter img{
     width: 30px;
 }
 
